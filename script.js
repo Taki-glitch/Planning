@@ -1,5 +1,5 @@
 // URL de ton script Google Apps (⚠️ à remplacer par la tienne)
-const API_URL = "https://script.google.com/macros/s/AKfycbxXDSg04btlvhjKVmVm8wOZQOiyeYuoBZOhYSMdd-OhoPRXgQGo0rQdSSjfhKNdTDvP/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbw2T42uR7CS3beTWAELGWci_LZsHpT7XZYzlr_VfnlgHVFIzUTS2fD9MnWtZ4Y3m4I/exec";
 
 /**
  * Charge le planning depuis l'API Google Apps Script
