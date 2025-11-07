@@ -1,22 +1,20 @@
-async function chargerPlanning() {
-  const res = await fetch(API_URL);
-  const data = await res.json();
-  afficherPlanning(data);
-}
-
 function afficherPlanning(data) {
   const div = document.getElementById("planning");
   div.innerHTML = "";
+
   data.forEach(slot => {
     const slotDiv = document.createElement("div");
     slotDiv.className = "slot";
 
+    // ✅ Sécurisation : si slot.inscrits n'existe pas, on met un tableau vide
+    const inscrits = Array.isArray(slot.inscrits) ? slot.inscrits : [];
+
     const info = document.createElement("span");
-    info.textContent = `${slot.heure} — ${slot.inscrits.length}/2 inscrits (${slot.inscrits.join(", ")})`;
+    info.textContent = `${slot.heure} — ${inscrits.length}/2 inscrits (${inscrits.join(", ")})`;
 
     const btn = document.createElement("button");
     btn.textContent = "S'inscrire";
-    btn.disabled = slot.inscrits.length >= 2;
+    btn.disabled = inscrits.length >= 2;
     btn.onclick = async () => {
       const nom = prompt("Entrez votre nom :");
       if (!nom) return;
@@ -40,5 +38,3 @@ function afficherPlanning(data) {
     div.appendChild(slotDiv);
   });
 }
-
-chargerPlanning();
